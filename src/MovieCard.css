@@ -1,0 +1,32 @@
+.movie{
+    border:1px solid #000;
+    padding-top: 20px;
+    
+    width: 25%;
+    margin: 30px;
+    
+}
+
+.movie img{
+    width: 50%;
+    padding-bottom: 20px;
+    left: 0;
+    padding-left: 15px;
+}
+
+.movie-name{
+    border-top: 2px solid #000;
+    padding: 10px 0;
+    padding-left: 15px;
+    font-size: 18px
+}
+
+.movie-name span{
+    padding-right: 8px
+}
+
+
+.raatee{
+position: relative;
+top:0
+}
