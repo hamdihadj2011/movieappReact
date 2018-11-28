@@ -2,15 +2,7 @@ import React from 'react'
 import Rat from'./Rating.js'
 import './MovieCard.css'
 
-// class MovieCard extends Component {
-    
-//     render() { 
-//         return ( 
-//             <div className='movie'>
-//             </div>
-//          );
-//     }
-// }
+
 
 const MovieCard =({movieList}) =>{
 return(
@@ -20,7 +12,7 @@ return(
         <span>{movieList.title}</span>
         <span>{movieList.year}</span>
     </div>
-    <Rat count={movieList.rate} className='raatee'/>
+    <Rat count={movieList.rate}/>
 
     </div>
 )

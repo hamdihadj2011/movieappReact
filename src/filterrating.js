@@ -1,12 +1,12 @@
 import React from 'react'
 import Rat from './Rating'
-const Filter =(props) =>{
+const Filter =({changingRate, rate}) =>{
     return(
         <div>
             <p>Minimum Rating</p>
             <p>
 
-                <Rat count={props.rate} onchangeRating={props.changeRating}/>
+                <Rat count={rate} change={(r) =>{  changingRate(r) }}/>
 
             </p>
         </div>

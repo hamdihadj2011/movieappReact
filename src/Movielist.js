@@ -1,21 +1,10 @@
 import React from 'react';
 import MovieCard from './Moviecard';
-import AddMovie from './addMovie'
+import AddMovie from './addMovie';
+import LoaderHOC from './Loader'
 
 import './MovieList.css'
 
-
-// class Movielist extends Component {
-//     constructor(props){
-//         super(props)
-//     }
-//     state = {  }
-//     render() { 
-//         return (  
-
-//         );
-//     }
-// }
 
 const Movielist =({moviesList,newmovie=()=>{}}) =>{
     return(
@@ -34,4 +23,4 @@ const Movielist =({moviesList,newmovie=()=>{}}) =>{
     
 }
  
-export default Movielist;
+export default LoaderHOC(Movielist);

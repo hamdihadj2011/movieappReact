@@ -51,39 +51,48 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state={
-      movie:theMoviesList,
-      moviefiltred:theMoviesList,
-      minFilterRating:1,
-      search:''
+      rating: 1,
+      movies: theMoviesList,
+      title: ''
     }
   }
-  onchangeRating=(newRating)=>
-  {  this.setState({ minFilterRating : newRating})}
+  
 
-  search(keyword){
-    let fil =this.state.movie.filter((el,i)=>{return this.state.minFilterRating && el.title.toLowerCase().indexOf(keyword)>-1})
-    this.setState({moviefiltred:fil})
+  
+  filterMovie() {
+    return this.state.movies.filter(
+      el =>
+        el.rate >= this.state.rating &&
+        el.title.toLocaleLowerCase().includes(this.state.title.toLocaleLowerCase())
+      )
   }
 
-  newmovie=(newmovie)=>
+  addNewMovie=(newmovie)=>
   { 
     
     this.setState({ movie : this.state.movie.concat(newmovie) }) 
     
   }
 
+ filter=(nameF)=>{
+  this.setState({
+    title: nameF
+  })
+ }
 
- 
+ setRate =(r)=>{ this.setState({ rating: r})}
   
   render() {
     return (
       <div className='App' >
-        <Search  className='search' searchname={x=>this.search(x) } serach={this.state.serach}/>
-        <Filter rate={this.state.minFilterRating}  changeRating={this.onchangeRating}/>
+        <Search  className='search' value={this.state.title}
+        onChange={(newNameFilter) =>this.filter(newNameFilter)}
+        />
+        <Filter rate={this.state.rating}  changingRate={(r) => this.setRate(r)}/>
         
         <div className="movie-container">
           
-          <Movielist moviesList={this.state.moviefiltred} newmovie={this.newmovie} className='movielist'/>
+          <Movielist moviesList={this.filterMovie()} onAddMovie={(newMovie) => this.addNewMovie(newMovie)} className='movielist'/>
         </div>
         
       </div>
